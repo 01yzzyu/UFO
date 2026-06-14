@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UFO: A Benchmark for Compositional Multimodal Reasoning in Unified Models</title>
+  <meta name="description" content="UFO: a benchmark evaluating whether Unified Foundation Models generate and use textual and visual cues as grounded evidence for compositional multimodal reasoning.">
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:title" content="UFO: A Benchmark for Compositional Multimodal Reasoning in Unified Models">
+  <meta property="og:description" content="Do vision and text cues exhibit evidential coupling? A benchmark for Unified Foundation Models.">
+  <meta property="og:image" content="static/images/teaser.png">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="static/images/ufo.png">
+
+  <!-- Bulma + Fonts + FontAwesome (same stack as academic-project-page-template) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Noto+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/index.css">
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop has-text-centered">
+      <img src="static/images/ufo.png" alt="UFO" style="height:64px;margin-bottom:1rem;">
+      <h1 class="title is-2 publication-title">
+        Do Vision and Text Cues Exhibit Evidential Coupling?<br>
+        <span class="ufo-grad">UFO</span>: A Benchmark for Compositional Multimodal Reasoning in Unified Models
+      </h1>
+
+      <div class="publication-authors">
+        <span class="author-block">Zhongyu Yang<sup>1</sup>,</span>
+        <span class="author-block">Dannong Xu<sup>1,2,</sup><sup class="eq">*</sup>,</span>
+        <span class="author-block">Yonghan Zhang<sup>1,</sup><sup class="eq">*</sup>,</span>
+        <span class="author-block">Kefan Chen<sup>1,</sup><sup class="eq">*</sup>,</span>
+        <span class="author-block">Xinyi Wang<sup>1,</sup><sup class="eq">*</sup>,</span>
+        <span class="author-block">Yang Xu<sup>3</sup>,</span>
+        <span class="author-block">Wei Pang<sup>1</sup>,</span>
+        <span class="author-block">Yingfang Yuan<sup>1,</sup><sup class="corr">&dagger;</sup></span>
+      </div>
+
+      <div class="publication-affil">
+        <span class="affil-block"><sup>1</sup>BCML, Heriot-Watt University</span>
+        <span class="affil-block"><sup>2</sup>INSAIT</span>
+        <span class="affil-block"><sup>3</sup>Southern University of Science and Technology</span>
+      </div>
+      <div class="publication-note">
+        <span class="eq">*</span>&nbsp;Equal contribution &nbsp;·&nbsp;
+        <span class="corr">&dagger;</span>&nbsp;Corresponding author &nbsp;·&nbsp;
+        <span class="venue">ICML 2026</span>
+      </div>
+
+      <!-- Links -->
+      <div class="publication-links" style="margin-top:1.4rem;">
+        <a class="button is-dark is-rounded" href="https://github.com/01yzzyu/UFO">
+          <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
+        </a>
+        <a class="button is-dark is-rounded" href="https://huggingface.co/datasets/yzzyu/UFO">
+          <span class="icon"><i class="fas fa-database"></i></span><span>Dataset 🤗</span>
+        </a>
+        <a class="button is-dark is-rounded" href="#" id="paper-link">
+          <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span>
+        </a>
+        <a class="button is-dark is-rounded" href="#bibtex">
+          <span class="icon"><i class="fas fa-quote-left"></i></span><span>BibTeX</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TEASER ===================== -->
+<section class="section" style="padding-top:0;">
+  <div class="container is-max-desktop">
+    <figure class="image">
+      <img src="static/images/teaser.png" alt="UFO: 3 categories x 10 tasks">
+    </figure>
+    <p class="has-text-centered is-size-6 caption">
+      <b>UFO</b> spans three state-transition regimes — <b>State Determination</b>,
+      <b>State Reconstruction</b>, and <b>State Augmentation</b> — across 10 tasks.
+    </p>
+  </div>
+</section>
+
+<!-- ===================== ABSTRACT ===================== -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Abstract</h2>
+    <div class="content has-text-justified">
+      <p>
+        Unified Foundation Models (UFMs), which support interleaved multimodal
+        generation and understanding, have been proposed as a promising paradigm
+        for reasoning about dynamic world states, yet it remains unclear whether
+        the visual content they generate functions as grounded evidence for
+        subsequent reasoning or merely as auxiliary output. Existing benchmarks
+        largely evaluate generation and understanding as separate capabilities and
+        do not test their functional dependence during reasoning.
+      </p>
+      <p>
+        We introduce <b>UFO</b>, a benchmark designed to evaluate whether UFMs
+        generate and use image and text cues as evidence for compositional
+        multimodal reasoning. UFO spans three cue types —
+        <b>state determination</b>, <b>state reconstruction</b>, and
+        <b>state augmentation</b> — which correspond to progressively smaller
+        transformations of the underlying world state. Our analysis reveals a
+        significant <b>modality gap</b>: models often achieve high prediction
+        accuracy even when the generated visual cues exert limited influence on
+        their decisions, indicating weakened <b>evidential coupling</b> and a
+        reliance on textual shortcuts rather than robust cross-modal grounding.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FRAMEWORK ===================== -->
+<section class="section" style="background:#fafafa;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">How UFO works</h2>
+    <p class="has-text-centered content" style="max-width:760px;margin:0 auto 1.5rem;">
+      Given input images and a question, a model first generates intermediate
+      <b>textual</b> and <b>visual</b> cues describing a future state, then answers
+      the question conditioned on those cues. UFO evaluates four reasoning
+      schedules to isolate each modality's contribution.
+    </p>
+    <figure class="image">
+      <img src="static/images/framework.png" alt="UFO reasoning framework">
+    </figure>
+
+    <div class="columns is-multiline" style="margin-top:1.5rem;">
+      <div class="column is-3"><div class="proto box"><h3 class="title is-5">Direct</h3><p>Answer from the input images only — no intermediate cue.</p></div></div>
+      <div class="column is-3"><div class="proto box"><h3 class="title is-5">Textual</h3><p>Answer conditioned on a generated <b>text</b> cue.</p></div></div>
+      <div class="column is-3"><div class="proto box"><h3 class="title is-5">Visual</h3><p>Answer conditioned on a generated <b>visual</b> cue (image).</p></div></div>
+      <div class="column is-3"><div class="proto box"><h3 class="title is-5">Joint</h3><p>Answer conditioned on <b>both</b> cues. Synergy ⇔ joint &gt; unimodal.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TASKS ===================== -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Tasks — 3 categories × 10 tasks</h2>
+    <div class="columns">
+      <div class="column">
+        <div class="box cat-box">
+          <h3 class="title is-5 cat-d">State Determination</h3>
+          <p class="cat-sub">Future state fully specified by inputs.</p>
+          <ul><li>Hybridisation</li><li>Chemical</li><li>Multi-table</li><li>Multi-view</li></ul>
+        </div>
+      </div>
+      <div class="column">
+        <div class="box cat-box">
+          <h3 class="title is-5 cat-r">State Reconstruction</h3>
+          <p class="cat-sub">Recover missing / occluded components.</p>
+          <ul><li>Inpainting</li><li>Exo-to-Ego</li><li>Jigsaw</li></ul>
+        </div>
+      </div>
+      <div class="column">
+        <div class="box cat-box">
+          <h3 class="title is-5 cat-a">State Augmentation</h3>
+          <p class="cat-sub">Make implicit relations explicit.</p>
+          <ul><li>Geometric</li><li>Logical</li><li>Physics</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== KEY STATS / FINDINGS ===================== -->
+<section class="section" style="background:#fafafa;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">At a glance</h2>
+    <div class="columns has-text-centered">
+      <div class="column"><p class="stat-num">3,366</p><p class="stat-lab">curated questions</p></div>
+      <div class="column"><p class="stat-num">10</p><p class="stat-lab">tasks · 3 regimes</p></div>
+      <div class="column"><p class="stat-num">4</p><p class="stat-lab">reasoning protocols</p></div>
+      <div class="column"><p class="stat-num">12+</p><p class="stat-lab">unified models evaluated</p></div>
+    </div>
+    <div class="content has-text-justified" style="margin-top:1rem;">
+      <p>
+        <b>Key finding.</b> Although the information gain required decreases from
+        determination → reconstruction → augmentation, this increased ease of
+        evidential coupling does <em>not</em> consistently improve UFM performance.
+        Most models remain far from being truly "unified": generated visual cues
+        are often state-aligned yet only weakly conditioned on when producing the
+        final answer.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== USE IT ===================== -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Get started in 30 seconds</h2>
+    <pre class="code-block"><code>pip install -e .                      # installs the `ufo-eval` command
+cp .env.example .env                  # add your OPENROUTER_API_KEY
+ufo-eval run --models GPT-5.1 --split mcq --limit 30 --out outputs/demo</code></pre>
+    <p class="has-text-centered content">
+      One command runs <b>inference → scoring → tables</b>. Full toolkit, 10 local
+      UFM adapters, and docs on
+      <a href="https://github.com/01yzzyu/UFO">GitHub</a>; data on
+      <a href="https://huggingface.co/datasets/yzzyu/UFO">Hugging Face</a>.
+    </p>
+  </div>
+</section>
+
+<!-- ===================== BIBTEX ===================== -->
+<section class="section" id="bibtex" style="background:#fafafa;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">BibTeX</h2>
+    <pre class="code-block"><code>@inproceedings{ufo2026,
+  title     = {Do Vision and Text Cues Exhibit Evidential Coupling?
+               UFO: A Benchmark for Compositional Multimodal Reasoning in Unified Models},
+  author    = {Yang, Zhongyu and Xu, Dannong and Zhang, Yonghan and Chen, Kefan and
+               Wang, Xinyi and Xu, Yang and Pang, Wei and Yuan, Yingfang},
+  booktitle = {International Conference on Machine Learning (ICML)},
+  year      = {2026}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="content has-text-centered is-size-7">
+    <p>
+      Page template adapted from
+      <a href="https://github.com/eliahuhorwitz/Academic-project-page-template">Academic Project Page Template</a>.
+      Licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

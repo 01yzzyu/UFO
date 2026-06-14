@@ -1,0 +1,145 @@
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans', 'Google Sans', sans-serif;
+  color: #1a1a1a;
+}
+
+.section { padding: 3.5rem 1.5rem; }
+.title.is-3 { margin-bottom: 1.6rem; letter-spacing: -0.01em; }
+
+/* ---------- Hero ---------- */
+.hero {
+  background:
+    radial-gradient(1100px 380px at 50% -120px, rgba(122,92,255,.18), transparent 70%),
+    linear-gradient(180deg, #eef3ff 0%, #ffffff 100%);
+  padding-top: 3rem;
+  padding-bottom: 1rem;
+}
+.publication-title {
+  font-family: 'Google Sans', 'Noto Sans', sans-serif;
+  line-height: 1.22;
+  letter-spacing: -0.015em;
+  margin-bottom: 0.4rem;
+}
+.ufo-grad {
+  background: linear-gradient(90deg, #2b6cff, #7a5cff 60%, #c44dff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+
+/* ---------- Authors ---------- */
+.publication-authors {
+  font-family: 'Google Sans', 'Noto Sans', sans-serif;
+  font-size: 1.2rem;
+  line-height: 2;
+  margin: 1.2rem auto 0;
+  max-width: 900px;
+}
+.publication-authors .author-block {
+  white-space: nowrap;
+  display: inline-block;
+  margin: 0 .3rem;
+  font-weight: 500;
+}
+.publication-authors sup { font-weight: 600; color: #2b6cff; }
+.publication-authors sup.eq { color: #c44dff; }
+.publication-authors sup.corr { color: #e0792b; }
+
+.publication-affil {
+  margin-top: .85rem;
+  font-size: 1rem;
+  color: #444;
+}
+.publication-affil .affil-block { display: inline-block; margin: .15rem .7rem; }
+.publication-affil sup { color: #2b6cff; font-weight: 600; }
+
+.publication-note { margin-top: .5rem; font-size: .9rem; color: #777; }
+.publication-note .eq { color: #c44dff; font-weight: 700; }
+.publication-note .corr { color: #e0792b; font-weight: 700; }
+.publication-note .venue { font-weight: 700; color: #2b6cff; letter-spacing: .02em; }
+
+/* ---------- Links ---------- */
+.publication-links .button {
+  margin: .3rem .35rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.publication-links .button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,.18);
+}
+
+/* ---------- Figures ---------- */
+.caption { color: #555; margin-top: .75rem; }
+figure.image img {
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  border: 1px solid #eee;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+figure.image img:hover {
+  transform: translateY(-3px) scale(1.005);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.16);
+}
+
+/* ---------- Boxes ---------- */
+.proto.box {
+  height: 100%;
+  border-top: 4px solid #2b6cff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.proto.box:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(0,0,0,.12); }
+.proto.box .title { color: #2b6cff; }
+
+.cat-box {
+  height: 100%;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.cat-box:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(0,0,0,.12); }
+.cat-box ul { margin-left: 1.1rem; }
+.cat-box li { margin: .25rem 0; }
+.cat-sub { color: #666; font-size: .9rem; margin-bottom: .6rem; }
+.cat-d { color: #2e8b57; }
+.cat-r { color: #c77c00; }
+.cat-a { color: #2b6cff; }
+
+/* ---------- Stats ---------- */
+.stat-num {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 2.7rem;
+  font-weight: 800;
+  color: #2b6cff;
+  line-height: 1;
+}
+.stat-lab { color: #555; margin-top: .3rem; }
+
+/* ---------- Code ---------- */
+.code-block {
+  background: #0f1117;
+  color: #e6e6e6;
+  border-radius: 12px;
+  padding: 1.1rem 1.3rem;
+  overflow-x: auto;
+  font-size: .92rem;
+  box-shadow: 0 4px 18px rgba(0,0,0,.18);
+}
+.code-block code { background: transparent; color: inherit; padding: 0; }
+
+a { color: #2b6cff; }
+a:hover { color: #7a5cff; }
+
+.footer { background: #f6f7fb; padding: 2rem 1.5rem; }
+
+@media (max-width: 768px) {
+  .publication-title { font-size: 1.5rem !important; }
+  .publication-authors { font-size: 1.02rem; line-height: 1.9; }
+  .stat-num { font-size: 2rem; }
+  .section { padding: 2.4rem 1.1rem; }
+}
