@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ufo-benchmark"
+version = "1.0.0"
+description = "Evaluation toolkit for the UFO benchmark (compositional multimodal reasoning in unified models)."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "CC-BY-NC-4.0" }
+dependencies = [
+    "openai>=1.40.0",
+    "datasets>=2.19.0",
+    "huggingface_hub>=0.23.0",
+    "pillow>=10.0.0",
+    "tqdm>=4.66.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+# Only needed for provider: fal (hosted UFMs)
+fal = ["fal-client>=0.4.0"]
+# Optional: auto-load a local .env file
+dotenv = ["python-dotenv>=1.0.0"]
+# For running the offline unit tests
+test = ["pytest>=7.0"]
+
+[project.scripts]
+ufo-eval = "ufo_bench.cli:main"
+
+[tool.setuptools]
+packages = ["ufo_bench", "ufo_bench.providers", "ufo_bench.providers.local"]

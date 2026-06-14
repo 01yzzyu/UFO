@@ -1,0 +1,22 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+.venv/
+venv/
+.DS_Store
+
+# Run artifacts
+outputs/
+results/
+*.log
+
+# Local data cache
+data_cache/
+*.parquet
+
+# Packaging / tests
+*.egg-info/
+build/
+dist/
+.pytest_cache/

@@ -1,0 +1,8 @@
+openai>=1.40.0
+datasets>=2.19.0
+huggingface_hub>=0.23.0
+pillow>=10.0.0
+tqdm>=4.66.0
+pyyaml>=6.0
+# Optional: only needed for provider: fal (Bagel / OmniGen2 and other UFMs)
+fal-client>=0.4.0
