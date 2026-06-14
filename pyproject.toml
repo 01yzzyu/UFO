@@ -18,6 +18,11 @@ dependencies = [
     "pyyaml>=6.0",
 ]
 
+[project.urls]
+Homepage = "https://github.com/01yzzyu/UFO"
+Repository = "https://github.com/01yzzyu/UFO"
+Dataset = "https://huggingface.co/datasets/yzzyu/UFO"
+
 [project.optional-dependencies]
 # Only needed for provider: fal (hosted UFMs)
 fal = ["fal-client>=0.4.0"]
